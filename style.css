@@ -4,17 +4,16 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 
 }
 
 #contenedor {
-    height: 60vh;
     width: 60vh;
+    height: 60vh;
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
 }
 
 .columna {
@@ -23,9 +22,11 @@ body {
     flex: auto;
 }
 .fila {
+    display: flex;
     border: 1px solid darkgrey;
     flex: auto;
-
+    
+    
 }
 
 .hover {
