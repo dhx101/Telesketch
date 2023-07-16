@@ -4,8 +4,7 @@ function changeGrid() {
     this.classList.add('hover')
 }
 
-function createCube(size) {
-
+function createGrid(size) {
     for (let i = 1 ; i <= size ; i++ ) {
         const divColumna = document.createElement('div');
         divColumna.classList.add('grid', 'columna');
@@ -19,15 +18,29 @@ function createCube(size) {
             grid.forEach(item => item.addEventListener('mouseover', changeGrid))
 }}
 
-createCube(16)
+createGrid(16)
 
-const btn = document.querySelector('#crear');
-function cambiarGrid() {
-    let size = prompt('Size of the new grid', 16)
-    createCube(size)
+function deleteCube() {
+    const grids = document.querySelectorAll('.columna');
+    console.log(grids.length)
+    for (let i = grids.length; i > 0 ; i--) {
+        container.removeChild(container.lastChild)
+    }
 }
 
-btn.addEventListener('click', cambiarGrid)
+function cambiarGrid() {
+    let size = prompt('Size of the new grid', 16)
+    if (size <= 100) {
+        createGrid(size)
+    } else {alert("Thats too big!")}
+    
+}
+
+const btn = document.querySelector('#crear');
+btn.addEventListener('click', () => {
+    deleteCube()
+    cambiarGrid();
+})
 
 
 
