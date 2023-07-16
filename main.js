@@ -1,6 +1,11 @@
 const container = document.querySelector('#contenedor');
 
+function changeGrid() {
+    this.classList.add('hover')
+}
+
 function createCube(size) {
+
     for (let i = 1 ; i <= size ; i++ ) {
         const divColumna = document.createElement('div');
         divColumna.classList.add('grid', 'columna');
@@ -10,15 +15,23 @@ function createCube(size) {
                 divFila.classList.add('grid', 'fila');
                 divColumna.appendChild(divFila)
             }  
+            const grid = document.querySelectorAll('.fila')
+            grid.forEach(item => item.addEventListener('mouseover', changeGrid))
 }}
 
+createCube(16)
 
-createCube(5)
-
-const grid = document.querySelectorAll('.fila')
-
-function changeGrid() {
-    this.classList.add('hover')
+const btn = document.querySelector('#crear');
+function cambiarGrid() {
+    let size = prompt('Size of the new grid', 16)
+    createCube(size)
 }
 
-grid.forEach(item => item.addEventListener('mouseover', changeGrid))
+btn.addEventListener('click', cambiarGrid)
+
+
+
+
+
+
+
